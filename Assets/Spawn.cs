@@ -5,29 +5,31 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
     [SerializeField] GameObject Obtacle;
-    [SerializeField] float timedelay = 3f;
+    [SerializeField] float timedelay = 10f;
     [SerializeField] Transform spawn;
+    private float randomOfset = 5f;
     
     float start =0f;
 
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if(start > 0)
-        {
-            start -= 1;
-        }
+       
         if(start <=0)
         {
             Instantiate(Obtacle, spawn);
-             start = timedelay;
+            start = timedelay;
+        }
+         else
+        {
+            start -= 1*Time.deltaTime;
         }
        
+
+    }
+    void GetRandom()
+    {
 
     }
 }
